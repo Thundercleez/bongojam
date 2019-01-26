@@ -11,7 +11,9 @@ public class PlayerJump : MonoBehaviour {
 
     Rigidbody rb;
     Vector3 curDir;
+    bool doJump;
     bool jumping;
+    bool doubleJumping;
     Vector3 tarPos;
 
     Animator animController;
@@ -27,7 +29,7 @@ public class PlayerJump : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(jumping)
+		if(doJump)
         {
             Vector3 tarDir = tarPos - gameObject.transform.position;
             tarDir.Normalize(); 
@@ -36,12 +38,13 @@ public class PlayerJump : MonoBehaviour {
             float distDelta = Vector3.Distance(gameObject.transform.position, tarPos);
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, gameObject.transform.position + curDir * distDelta, moveSpeed * Time.deltaTime);
             float distToTar = Vector3.Distance(gameObject.transform.position, tarPos);
-            if (distToTar < .1f)
+            if (distToTar < .3f)
             {
                 gameObject.transform.position = tarPos;
-                jumping = false;
                 rb.isKinematic = false;
-            }else if(distToTar < 2.5f)
+                doJump = false;
+            }
+            else if(distToTar < 2.5f)
             {
                 if (!jumpEnd)
                 {
@@ -52,9 +55,18 @@ public class PlayerJump : MonoBehaviour {
         }
 	}
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.gameObject.tag.Equals("Platform"))
+        {
+            jumping = false;
+            doubleJumping = false;
+        }
+    }
+
     public void Jump (Vector3 target, bool overwrite)
     {
-        if (!jumping || overwrite)
+        if (!jumping || (!doubleJumping && overwrite))
         {
             tarPos = target;
             rb.isKinematic = true;
@@ -72,7 +84,9 @@ public class PlayerJump : MonoBehaviour {
                 gameObject.transform.position = startPos;
                 startPos = gameObject.transform.position;
             }
+            doJump = true;
             jumping = true;
+            doubleJumping = overwrite;
         }
     }
 }

@@ -18,6 +18,10 @@ public class CamController : MonoBehaviour {
     [SerializeField]
     GameObject loseText;
 
+    [SerializeField]
+    float rainbowThreshold;
+    bool rainbowOn;
+
     float curSpeed;
     bool following;
 
@@ -30,6 +34,13 @@ public class CamController : MonoBehaviour {
 	void Update () {
         curSpeed += Time.deltaTime * accelRate;
         float camSpeed = Mathf.Clamp(Mathf.Pow(curSpeed, 2) + Mathf.Log(curSpeed) + 2, startSpeed, maxSpeed);
+
+        if(!rainbowOn &&
+            camSpeed > rainbowThreshold)
+        {
+            rainbowOn = true;
+            Globals.Instance.playerObj.transform.Find("RainbowTrail").gameObject.SetActive(true);
+        }
 
         gameObject.transform.position += Vector3.up * camSpeed;
         Vector3 screenPos = Globals.Instance.mainCam.WorldToScreenPoint(Globals.Instance.playerObj.transform.position);
