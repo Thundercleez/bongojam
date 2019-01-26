@@ -13,7 +13,7 @@ public class Globals : Singleton<Globals> {
 
 	// Use this for initialization
 	void Awake () {
-        mainCam = GameObject.Find("Camera").GetComponent<Camera>();
+        mainCam = GameObject.Find("Camera").GetComponent<Camera>(); //camera name needs to changed in some cases oc
         keyMappings = new List<List<KeyCode>>();
         keyMappings.Add(new List<KeyCode>());
         keyMappings.Add(new List<KeyCode>());
