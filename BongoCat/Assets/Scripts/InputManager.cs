@@ -41,7 +41,7 @@ public class InputManager : Singleton<InputManager> {
 
         for (int i = 0; i < Globals.Instance.keyMappings.Count; i++)
         {
-            if (Input.GetKeyDown(Globals.Instance.keyMappings[i]))
+            if (Input.GetKeyDown(Globals.Instance.keyMappings[0][i]) || Input.GetKeyDown(Globals.Instance.keyMappings[1][i]))
             {
                 InputEntry ie = new InputEntry();
                 ie.inputTime = Time.time;

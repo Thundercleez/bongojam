@@ -6,7 +6,7 @@ public class Globals : Singleton<Globals> {
 
     public GameObject playerObj;
     public Camera mainCam;
-    public List<KeyCode> keyMappings;
+    public List<List<KeyCode>> keyMappings;
     public int score;
 
     public enum InputIndexMappingEnum { LEFT_INPUT_INDEX, RIGHT_INPUT_INDEX };
@@ -14,9 +14,15 @@ public class Globals : Singleton<Globals> {
 	// Use this for initialization
 	void Awake () {
         mainCam = GameObject.Find("Camera").GetComponent<Camera>();
-        keyMappings = new List<KeyCode>();
-        keyMappings.Add(KeyCode.A);
-        keyMappings.Add(KeyCode.L);
+        keyMappings = new List<List<KeyCode>>();
+        keyMappings.Add(new List<KeyCode>());
+        keyMappings.Add(new List<KeyCode>());
+
+        keyMappings[0].Add(KeyCode.A);
+        keyMappings[0].Add(KeyCode.L);
+
+        keyMappings[1].Add(KeyCode.Joystick1Button0);
+        keyMappings[1].Add(KeyCode.Joystick1Button3);
 
         playerObj = GameObject.FindGameObjectWithTag("Player");
     }

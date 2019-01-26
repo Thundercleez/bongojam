@@ -17,6 +17,8 @@ public class PlayerJump : MonoBehaviour {
     Animator animController;
     bool jumpEnd;
 
+    Vector3 startPos;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
@@ -50,22 +52,27 @@ public class PlayerJump : MonoBehaviour {
         }
 	}
 
-    public void Jump (Vector3 jumpForce, Vector3 target)
+    public void Jump (Vector3 target, bool overwrite)
     {
-        if (!jumping)
+        if (!jumping || overwrite)
         {
             tarPos = target;
-            jumping = true;
-            //rb.AddForce(jumpForce, ForceMode.Impulse);
             rb.isKinematic = true;
             curDir = Vector3.up;
-            animController.SetTrigger("JumpStart");
+            if (!jumping)
+            {
+                animController.SetTrigger("JumpStart");
+            }
             jumpEnd = false;
+            if (!overwrite)
+            {
+                startPos = gameObject.transform.position;
+            }else
+            {
+                gameObject.transform.position = startPos;
+                startPos = gameObject.transform.position;
+            }
+            jumping = true;
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(gameObject.transform.position, gameObject.transform.position + curDir * 10);
     }
 }

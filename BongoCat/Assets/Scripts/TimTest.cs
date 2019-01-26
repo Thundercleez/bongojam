@@ -13,16 +13,6 @@ public class TimTest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Q))
-        {
-            animController.SetTrigger("JumpStart");
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            animController.SetTrigger("JumpEnd");
-        }
-
         KeyCode pressed = InputManager.WhichKeyDown();
         if(pressed != KeyCode.None)
         {
