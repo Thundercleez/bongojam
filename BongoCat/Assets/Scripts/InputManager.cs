@@ -3,7 +3,65 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class InputManager {
+public class InputManager : Singleton<InputManager> {
+
+    public static float inputBuffer = .016f * 3;
+
+
+    public enum ActionsEnum { JUMP_LEFT, JUMP_RIGHT, DOUBLE_JUMP };
+
+    public class InputEntry
+    {
+        public float inputTime;
+        public ActionsEnum inputAction;
+        public bool processed;
+    }
+
+    public List<InputEntry> inputEntries;
+
+    private void Awake()
+    {
+        inputEntries = new List<InputEntry>();
+    }
+
+    private void Update()
+    {
+        ReadInputs();
+    }
+
+    void ReadInputs()
+    {
+        for (int i = inputEntries.Count - 1; i >= 0; i--)
+        {
+            if (Time.time - inputEntries[i].inputTime >= inputBuffer)
+            {
+                inputEntries.RemoveAt(i);
+            }
+        }
+
+        for (int i = 0; i < Globals.Instance.keyMappings.Count; i++)
+        {
+            if (Input.GetKeyDown(Globals.Instance.keyMappings[i]))
+            {
+                InputEntry ie = new InputEntry();
+                ie.inputTime = Time.time;
+                if (i == (int)Globals.InputIndexMappingEnum.LEFT_INPUT_INDEX)
+                {
+                    ie.inputAction = ActionsEnum.JUMP_LEFT;
+                }
+                else
+                {
+                    ie.inputAction = ActionsEnum.JUMP_RIGHT;
+                }
+
+                if (inputEntries.Count == 1)
+                {
+                    ie.inputAction = ActionsEnum.DOUBLE_JUMP;
+                }
+                inputEntries.Add(ie);
+            }
+        }
+    }
 
     public static KeyCode WhichKeyDown()
     {

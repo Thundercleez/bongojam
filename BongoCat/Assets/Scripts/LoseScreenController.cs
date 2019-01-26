@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class LoseScreenController : MonoBehaviour {
 
     delegate void action_t();
     List<action_t> actions;
 
-	// Use this for initialization
-	void Start () {
-
+    // Use this for initialization
+    void Start () {
         actions = new List<action_t>();
-        actions.Add(JumpLeft);
-        actions.Add(JumpRight);
-        actions.Add(DoubleJump);
+        actions.Add(SelectYes);
+        actions.Add(SelectNo);
 
         InputManager foo = InputManager.Instance;
     }
@@ -21,13 +19,13 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         ProcessInputs();
-	}
+    }
 
     void ProcessInputs()
     {
-        for(int i = 0; i < InputManager.Instance.inputEntries.Count; i++)
+        for (int i = 0; i < InputManager.Instance.inputEntries.Count; i++)
         {
-            if(!InputManager.Instance.inputEntries[i].processed)
+            if (!InputManager.Instance.inputEntries[i].processed)
             {
                 InputManager.Instance.inputEntries[i].processed = true;
                 actions[(int)InputManager.Instance.inputEntries[i].inputAction]();
@@ -35,18 +33,13 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void JumpLeft()
+    void SelectYes()
     {
-        Debug.Log(Time.time + " JumpLeft");
+        Application.LoadLevel(Application.loadedLevel);
     }
 
-    void JumpRight()
+    void SelectNo()
     {
-        Debug.Log(Time.time + " JumpRight");
-    }
-
-    void DoubleJump()
-    {
-        Debug.Log(Time.time + " DoubleJump");
+        Application.Quit();
     }
 }
