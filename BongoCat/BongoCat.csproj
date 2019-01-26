@@ -339,6 +339,7 @@
     <Compile Include="Assets\Scripts\PlayerJump.cs" />
     <Compile Include="Assets\Scripts\ScoreUtil.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\TileManager.cs" />
     <Compile Include="Assets\Scripts\TimedObject.cs" />
     <Compile Include="Assets\Scripts\TimTest.cs" />
     <Compile Include="Assets\Scripts\WinLose.cs" />

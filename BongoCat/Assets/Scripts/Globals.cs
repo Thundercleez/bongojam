@@ -24,7 +24,7 @@ public class Globals : Singleton<Globals> {
         keyMappings[1].Add(KeyCode.Joystick1Button0);
         keyMappings[1].Add(KeyCode.Joystick1Button3);
 
-        playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerObj = GameObject.FindGameObjectWithTag("Player"); //player must be tagged player oc
     }
 
     private void Update()
