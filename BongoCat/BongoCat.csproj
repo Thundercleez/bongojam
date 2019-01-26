@@ -333,6 +333,7 @@
     <Compile Include="Assets\Lowpoly Toon Cat Lite\Demo\Cat_Lite_Demo.cs" />
     <Compile Include="Assets\Scripts\Bucket.cs" />
     <Compile Include="Assets\Scripts\CamController.cs" />
+    <Compile Include="Assets\Scripts\CatHouse.cs" />
     <Compile Include="Assets\Scripts\Globals.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\LoseScreenController.cs" />
@@ -344,6 +345,7 @@
     <Compile Include="Assets\Scripts\TimedObject.cs" />
     <Compile Include="Assets\Scripts\TimTest.cs" />
     <Compile Include="Assets\Scripts\WinLose.cs" />
+    <Compile Include="Assets\Scripts\WinScreenController.cs" />
     <Compile Include="Assets\Scripts\YarnBall.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
