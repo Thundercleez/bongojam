@@ -5,7 +5,7 @@ using System.IO;
 
 public class InputManager {
 
-    static KeyCode WhichKeyDown()
+    public static KeyCode WhichKeyDown()
     {
         if (Input.GetKeyDown(KeyCode.Backspace)) { return KeyCode.Backspace; }
 
