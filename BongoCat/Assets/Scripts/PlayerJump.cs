@@ -89,4 +89,18 @@ public class PlayerJump : MonoBehaviour {
             doubleJumping = overwrite;
         }
     }
+
+    public void BucketJump(Vector3 target)
+    {
+        tarPos = target;
+        rb.isKinematic = true;
+        curDir = Vector3.up;
+        if (!jumping)
+        {
+            animController.SetTrigger("JumpStart");
+        }
+        jumpEnd = false;
+        doJump = true;
+        jumping = true;
+    }
 }
