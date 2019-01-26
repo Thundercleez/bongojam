@@ -6,6 +6,7 @@ public class Globals : Singleton<Globals> {
 
     public Camera mainCam;
     public List<KeyCode> keyMappings;
+    public int score;
 
     public enum InputIndexMappingEnum { LEFT_INPUT_INDEX, RIGHT_INPUT_INDEX };
 
