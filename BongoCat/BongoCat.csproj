@@ -329,13 +329,12 @@
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\TimTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Audio\temp.txt" />
     <None Include="Assets\Resources\Materials\temp.txt" />
-    <None Include="Assets\Resources\Prefabs\temp.txt" />
     <None Include="Assets\Resources\Textures\temp.txt" />
-    <None Include="Assets\Scripts\temp.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
