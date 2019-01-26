@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 8628973}
   - component: {fileID: 8628972}
   - component: {fileID: 8628971}
-  - component: {fileID: 8628974}
+  - component: {fileID: 8628975}
   - component: {fileID: 8628970}
   - component: {fileID: 8628969}
   - component: {fileID: 8628966}
@@ -308,7 +308,7 @@ Transform:
   m_Father: {fileID: 137871876}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8628974
+--- !u!65 &8628975
 BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -318,8 +318,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5510335, y: 1, z: 1}
-  m_Center: {x: -0.7769011, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 0.39999998, z: 1.024746}
+  m_Center: {x: -0.7769011, y: -0.2835226, z: 0.004163444}
 --- !u!1001 &76562556
 Prefab:
   m_ObjectHideFlags: 0
@@ -550,12 +550,12 @@ GameObject:
   - component: {fileID: 91985602}
   - component: {fileID: 91985601}
   - component: {fileID: 91985600}
+  - component: {fileID: 91985603}
   - component: {fileID: 91985599}
   - component: {fileID: 91985598}
   - component: {fileID: 91985595}
   - component: {fileID: 91985597}
   - component: {fileID: 91985596}
-  - component: {fileID: 91985603}
   m_Layer: 0
   m_Name: Capsule (1)
   m_TagString: Untagged
@@ -745,8 +745,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5450755, y: 2.0000005, z: 1}
-  m_Center: {x: -0.7758637, y: -0.0000010769944, z: -0.00000011920932}
+  m_Size: {x: 1.5450755, y: 2.0000005, z: 0.41790614}
+  m_Center: {x: -0.7758637, y: -0.0000010541609, z: -0.28731343}
 --- !u!1 &137871875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,8 +1234,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5510335, y: 1, z: 1}
-  m_Center: {x: -0.7769011, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 0.39999998, z: 1.024746}
+  m_Center: {x: -0.7769011, y: -0.2835226, z: 0.004163444}
 --- !u!1001 &423998607
 Prefab:
   m_ObjectHideFlags: 0
@@ -2158,7 +2158,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4179871348207136, guid: 2e8bb03bf4110a649bba55809cdac614, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.38
+      value: 8.2
       objectReference: {fileID: 0}
     - target: {fileID: 4179871348207136, guid: 2e8bb03bf4110a649bba55809cdac614, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3436,8 +3436,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5450755, y: 2.0000005, z: 1}
-  m_Center: {x: -0.7758637, y: -0.0000010769944, z: -0.00000011920932}
+  m_Size: {x: 1.5, y: 2.0000005, z: 0.3399239}
+  m_Center: {x: -0.77586365, y: -0.000001054739, z: -0.28003806}
 --- !u!1001 &1283075802
 Prefab:
   m_ObjectHideFlags: 0
@@ -4140,12 +4140,12 @@ GameObject:
   - component: {fileID: 1375732735}
   - component: {fileID: 1375732734}
   - component: {fileID: 1375732733}
+  - component: {fileID: 1375732736}
   - component: {fileID: 1375732732}
   - component: {fileID: 1375732731}
   - component: {fileID: 1375732728}
   - component: {fileID: 1375732730}
   - component: {fileID: 1375732729}
-  - component: {fileID: 1375732736}
   m_Layer: 0
   m_Name: Capsule (2)
   m_TagString: Untagged
@@ -4335,8 +4335,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5450755, y: 2.0000005, z: 1}
-  m_Center: {x: -0.7758637, y: -0.0000010769944, z: -0.00000011920932}
+  m_Size: {x: 1.5450755, y: 2.0000005, z: 0.37425062}
+  m_Center: {x: -0.7758637, y: -0.0000010524261, z: -0.3091412}
 --- !u!1 &1390833075
 GameObject:
   m_ObjectHideFlags: 0
@@ -4507,8 +4507,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5450755, y: 2.0000005, z: 1}
-  m_Center: {x: -0.7758637, y: -0.0000010769944, z: -0.00000011920932}
+  m_Size: {x: 1.5450755, y: 2.0000005, z: 0.403355}
+  m_Center: {x: -0.7758637, y: -0.0000010532859, z: -0.29832268}
 --- !u!1001 &1460968781
 Prefab:
   m_ObjectHideFlags: 0
@@ -5018,12 +5018,12 @@ GameObject:
   - component: {fileID: 1687282806}
   - component: {fileID: 1687282805}
   - component: {fileID: 1687282804}
+  - component: {fileID: 1687282808}
   - component: {fileID: 1687282803}
   - component: {fileID: 1687282802}
   - component: {fileID: 1687282799}
   - component: {fileID: 1687282801}
   - component: {fileID: 1687282800}
-  - component: {fileID: 1687282807}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -5202,7 +5202,7 @@ Transform:
   m_Father: {fileID: 137871876}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1687282807
+--- !u!65 &1687282808
 BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -5212,8 +5212,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5510335, y: 1, z: 1}
-  m_Center: {x: -0.7769011, y: 0, z: 0}
+  m_Size: {x: 1.5291046, y: 0.37089485, z: 1.024746}
+  m_Center: {x: -0.7914534, y: -0.29807517, z: 0.004163444}
 --- !u!1 &1692537587
 GameObject:
   m_ObjectHideFlags: 0
