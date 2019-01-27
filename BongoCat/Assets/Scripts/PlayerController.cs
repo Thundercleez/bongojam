@@ -46,9 +46,9 @@ public class PlayerController : MonoBehaviour {
     {
         //Create a Vector3 that uses the horizontal and vertical jump force parameters.
         //Call the jumpScript's Jump function and pass in the applicable JumpForce Vector3.
-        Vector3 tarPos = gameObject.transform.position + new Vector3(20, 10, 0); 
+        Vector3 tarPos = gameObject.transform.position + new Vector3(-20, 10, 0); 
         jumpScript.Jump(tarPos, false);
-        Debug.Log(Time.time + " JumpRight"); //should be right
+        Debug.Log(Time.time + " JumpLeft"); //should be right
         gameObject.transform.rotation = Quaternion.LookRotation(Vector3.right); //animation turns right
     }
 
@@ -56,9 +56,9 @@ public class PlayerController : MonoBehaviour {
     {
         //Create a Vector3 that uses the negative horizonal and regular vertical jump force parameters.
         //Call the jumpScript's Jump function and pass in the applicable JumpForce Vector3.
-        Vector3 tarPos = gameObject.transform.position + new Vector3(-20, 10, 0);
+        Vector3 tarPos = gameObject.transform.position + new Vector3(20, 10, 0);
         jumpScript.Jump(tarPos, false);
-        Debug.Log(Time.time + " JumpLeft"); //should be left
+        Debug.Log(Time.time + " JumpRight"); //should be left
         gameObject.transform.rotation = Quaternion.LookRotation(Vector3.left); //animation turns left
     }
 

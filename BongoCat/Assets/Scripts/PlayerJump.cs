@@ -21,10 +21,13 @@ public class PlayerJump : MonoBehaviour {
 
     Vector3 startPos;
 
+    BeatDisplay beatDisplay;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
         animController = gameObject.GetComponent<Animator>();
+        beatDisplay = GameObject.FindObjectOfType<BeatDisplay>();
     }
 	
 	// Update is called once per frame
@@ -83,6 +86,11 @@ public class PlayerJump : MonoBehaviour {
             {
                 gameObject.transform.position = startPos;
                 startPos = gameObject.transform.position;
+            }
+            if(!overwrite &&
+                beatDisplay.IsInTime())
+            {
+                Globals.Instance.score += 5;
             }
             doJump = true;
             jumping = true;

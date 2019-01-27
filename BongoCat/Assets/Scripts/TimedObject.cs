@@ -7,6 +7,11 @@ public class TimedObject : MonoBehaviour {
     public float lifeTime;
     float timer;
 
+    public float GetRemTime()
+    {
+        return lifeTime - (Time.time - timer);
+    }
+
 	// Use this for initialization
 	void Start () {
         timer = Time.time;
