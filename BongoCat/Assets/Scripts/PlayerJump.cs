@@ -78,6 +78,9 @@ public class PlayerJump : MonoBehaviour {
             startPos = Vector3.zero;
             jumpCommitted = false;
             Debug.Log(Time.time + " landed");
+            animController.SetTrigger("ResetAnim");
+            animController.ResetTrigger("JumpStart");
+            animController.ResetTrigger("JumpEnd");
         }
     }
 
