@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
         actions.Add(JumpLeft);
         actions.Add(JumpRight);
         actions.Add(DoubleJump);
+        actions.Add(CommitJump);
 
         //Get the the attached gameobject's PlayerJump script and store it in the jumpScript variable.
 
@@ -40,6 +41,12 @@ public class PlayerController : MonoBehaviour {
                 actions[(int)InputManager.Instance.inputEntries[i].inputAction]();
             }
         }
+    }
+
+    void CommitJump()
+    {
+        Debug.Log(Time.time + " commit jump");
+        jumpScript.SetJumpCommitted();
     }
 
     void JumpLeft()

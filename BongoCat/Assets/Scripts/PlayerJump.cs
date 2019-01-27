@@ -18,6 +18,7 @@ public class PlayerJump : MonoBehaviour {
 
     Animator animController;
     bool jumpEnd;
+    bool jumpCommitted;
 
     Vector3 startPos;
 
@@ -37,6 +38,7 @@ public class PlayerJump : MonoBehaviour {
         //inTimeEmitter = beatDisplay.GetComponentInChildren<ParticleSystem>();
 
         JumpNoise = GetComponent<AudioSource>();
+        startPos = Vector3.zero;
     }
 	
 	// Update is called once per frame
@@ -73,12 +75,34 @@ public class PlayerJump : MonoBehaviour {
         {
             jumping = false;
             doubleJumping = false;
+            startPos = Vector3.zero;
+            jumpCommitted = false;
+            Debug.Log(Time.time + " landed");
         }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.gameObject.tag.Equals("Platform"))
+        {
+            jumping = false;
+            doubleJumping = false;
+            startPos = Vector3.zero;
+            jumpCommitted = false;
+        }
+    }
+
+    public void SetJumpCommitted()
+    {
+        jumpCommitted = true;
     }
 
     public void Jump (Vector3 target, bool overwrite)
     {
-        if (!jumping || (!doubleJumping && overwrite))
+        if(jumpCommitted)
+        {
+            return;
+        }else if (!jumping || (!doubleJumping && overwrite))
         {
             tarPos = target;
             rb.isKinematic = true;
@@ -91,13 +115,16 @@ public class PlayerJump : MonoBehaviour {
                 JumpNoise.Play();
             }
             jumpEnd = false;
-            if (!overwrite)
+            if (!overwrite || startPos.sqrMagnitude == Vector3.zero.sqrMagnitude)
             {
                 startPos = gameObject.transform.position;
-            }else
+                Debug.Log(Time.time + " reset start pos");
+            }
+            else
             {
                 gameObject.transform.position = startPos;
                 startPos = gameObject.transform.position;
+                Debug.Log(Time.time + " reset player");
             }
             if (!overwrite)
             {

@@ -8,7 +8,7 @@ public class InputManager : Singleton<InputManager> {
     public static float inputBuffer = .016f * 3;
 
 
-    public enum ActionsEnum { JUMP_LEFT, JUMP_RIGHT, DOUBLE_JUMP };
+    public enum ActionsEnum { JUMP_LEFT, JUMP_RIGHT, DOUBLE_JUMP, JUMP_COMMITED };
 
     public class InputEntry
     {
@@ -41,6 +41,34 @@ public class InputManager : Singleton<InputManager> {
 
         for (int i = 0; i < Globals.Instance.keyMappings.Count; i++)
         {
+            if (Input.GetKeyUp(Globals.Instance.keyMappings[0][i]) || Input.GetKeyDown(Globals.Instance.keyMappings[1][i]))
+            {
+                if (i == (int)Globals.InputIndexMappingEnum.LEFT_INPUT_INDEX)
+                {
+                    RemoveInputEntry(ActionsEnum.JUMP_LEFT);
+                }
+                else
+                {
+                    RemoveInputEntry(ActionsEnum.JUMP_RIGHT);
+                }
+                bool isCommitted = false;
+                for(int j = 0; j < inputEntries.Count; j++)
+                {
+                    if(inputEntries[j].inputAction == ActionsEnum.JUMP_COMMITED)
+                    {
+                        isCommitted = true;
+                        break;
+                    }
+                }
+                if (!isCommitted)
+                {
+                    InputEntry ie = new InputEntry();
+                    ie.inputTime = Time.time;
+                    ie.inputAction = ActionsEnum.JUMP_COMMITED;
+                    inputEntries.Add(ie);
+                }
+            }
+
             if (Input.GetKeyDown(Globals.Instance.keyMappings[0][i]) || Input.GetKeyDown(Globals.Instance.keyMappings[1][i]))
             {
                 InputEntry ie = new InputEntry();
@@ -59,6 +87,17 @@ public class InputManager : Singleton<InputManager> {
                     ie.inputAction = ActionsEnum.DOUBLE_JUMP;
                 }
                 inputEntries.Add(ie);
+            }
+        }
+    }
+
+    void RemoveInputEntry(ActionsEnum action)
+    {
+        for(int i = inputEntries.Count - 1; i >= 0; i--)
+        {
+            if(inputEntries[i].inputAction == action)
+            {
+                inputEntries.RemoveAt(i);
             }
         }
     }
