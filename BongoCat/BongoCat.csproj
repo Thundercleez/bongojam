@@ -330,7 +330,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Lowpoly Toon Cat Lite\Demo\Cat_Lite_Demo.cs" />
     <Compile Include="Assets\Resources\Lowpoly Toon Cat Lite\Demo\Cat_Lite_Demo.cs" />
     <Compile Include="Assets\Scripts\BeatDisplay.cs" />
     <Compile Include="Assets\Scripts\BeatIconSlider.cs" />
