@@ -38,6 +38,6 @@ public class WinScreenController : MonoBehaviour
 
     void LoadNextLevel()
     {
-        Application.LoadLevel(Application.loadedLevel); //TODO
+        //SceneManager.LoadLevel(Application.loadedLevel); //TODO
     }
 }
