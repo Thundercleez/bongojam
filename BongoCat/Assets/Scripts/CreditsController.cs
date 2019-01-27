@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartMenuController : MonoBehaviour {
+public class CreditsController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -24,10 +25,11 @@ public class StartMenuController : MonoBehaviour {
                 InputManager.Instance.inputEntries[i].processed = true;
                 if (InputManager.Instance.inputEntries[i].inputAction == InputManager.ActionsEnum.JUMP_LEFT)
                 {
-                    Application.LoadLevel("Level1");
-                }else if (InputManager.Instance.inputEntries[i].inputAction == InputManager.ActionsEnum.JUMP_RIGHT)
+                    Application.Quit();
+                }
+                else if (InputManager.Instance.inputEntries[i].inputAction == InputManager.ActionsEnum.JUMP_RIGHT)
                 {
-                    Application.LoadLevel("Credits");
+                    Application.LoadLevel("StartMenu");
                 }
             }
         }
