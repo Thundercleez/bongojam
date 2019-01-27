@@ -22,6 +22,7 @@ public class PlayerJump : MonoBehaviour {
     Vector3 startPos;
 
     BeatDisplay beatDisplay;
+    ParticleSystem inTimeEmitter;
 
     //audio 
     // [Space(10)] //has to have thing underneath
@@ -33,6 +34,7 @@ public class PlayerJump : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         animController = gameObject.GetComponent<Animator>();
         beatDisplay = GameObject.FindObjectOfType<BeatDisplay>();
+        //inTimeEmitter = beatDisplay.GetComponentInChildren<ParticleSystem>();
 
         JumpNoise = GetComponent<AudioSource>();
     }
@@ -97,10 +99,17 @@ public class PlayerJump : MonoBehaviour {
                 gameObject.transform.position = startPos;
                 startPos = gameObject.transform.position;
             }
-            if(!overwrite &&
-                beatDisplay.IsInTime())
+            if (!overwrite)
             {
-                Globals.Instance.score += 5;
+                if (beatDisplay.IsInTime())
+                {
+                    //DisplayBeatEffect(true);
+                    Globals.Instance.score += 5;
+                }
+                /*else
+                {
+                    DisplayBeatEffect(false);
+                }*/
             }
             doJump = true;
             jumping = true;
@@ -121,4 +130,17 @@ public class PlayerJump : MonoBehaviour {
         doJump = true;
         jumping = true;
     }
+    
+    //WR: Attempting Display Beat Effect
+    /*void DisplayBeatEffect(bool inTime)
+    {
+        if (inTime)
+        {
+            inTimeEmitter.Play();
+        }
+        else
+        {
+
+        }
+    }*/
 }
