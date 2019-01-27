@@ -22,8 +22,8 @@ public class Globals : Singleton<Globals> {
         keyMappings[0].Add(KeyCode.A);
         keyMappings[0].Add(KeyCode.L);
 
-        keyMappings[1].Add(KeyCode.Joystick1Button0);
-        keyMappings[1].Add(KeyCode.Joystick1Button3);
+        keyMappings[1].Add(KeyCode.Joystick1Button3); //big button left side
+        keyMappings[1].Add(KeyCode.Joystick1Button0); //big button right side
 
         playerObj = GameObject.FindGameObjectWithTag("Player"); //player must be tagged player oc
     }

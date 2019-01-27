@@ -23,11 +23,18 @@ public class PlayerJump : MonoBehaviour {
 
     BeatDisplay beatDisplay;
 
+    //audio 
+    // [Space(10)] //has to have thing underneath
+    //[SerializeField]
+    AudioSource JumpNoise;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
         animController = gameObject.GetComponent<Animator>();
         beatDisplay = GameObject.FindObjectOfType<BeatDisplay>();
+
+        JumpNoise = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -77,6 +84,9 @@ public class PlayerJump : MonoBehaviour {
             if (!jumping)
             {
                 animController.SetTrigger("JumpStart");
+
+                //should play audio on jump
+                JumpNoise.Play();
             }
             jumpEnd = false;
             if (!overwrite)
