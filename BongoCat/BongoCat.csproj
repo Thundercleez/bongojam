@@ -341,6 +341,7 @@
     <Compile Include="Assets\Scripts\LoseScreenController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerJump.cs" />
+    <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\ScoreUtil.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\Scripts\StartMenu.cs" />
