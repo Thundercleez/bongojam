@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WinScreenController : MonoBehaviour
 {
-
+    public static int curLevel = 1;
     delegate void action_t();
     List<action_t> actions;
 
@@ -38,6 +38,13 @@ public class WinScreenController : MonoBehaviour
 
     void LoadNextLevel()
     {
-        //SceneManager.LoadLevel(Application.loadedLevel); //TODO
+        curLevel++;
+        if (curLevel <= 4)
+        {
+            Application.LoadLevel("Level" + curLevel);
+        }else
+        {
+            Application.LoadLevel("Credits");
+        }
     }
 }

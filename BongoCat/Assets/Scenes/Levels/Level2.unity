@@ -4042,9 +4042,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b24d729aba00394b93ed763587ca1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 0.04
+  startSpeed: 0.05
   accelRate: 0.0025
-  maxSpeed: 0.21
+  maxSpeed: 0.19
   loseThreshold: -50
   followSpeed: 25
   loseText: {fileID: 88754956}
