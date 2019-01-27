@@ -82,11 +82,12 @@ public class InputManager : Singleton<InputManager> {
                     ie.inputAction = ActionsEnum.JUMP_RIGHT;
                 }
 
-                if (inputEntries.Count == 1)
+                if ( (inputEntries.Count == 1 && inputEntries[0].inputAction != ActionsEnum.JUMP_COMMITED) ||
+                    (inputEntries.Count > 1))
                 {
                     ie.inputAction = ActionsEnum.DOUBLE_JUMP;
                 }
-                inputEntries.Add(ie);
+                inputEntries.Insert(0, ie);
             }
         }
     }

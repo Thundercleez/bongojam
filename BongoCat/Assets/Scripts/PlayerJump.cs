@@ -104,6 +104,7 @@ public class PlayerJump : MonoBehaviour {
     {
         if(jumpCommitted)
         {
+            Debug.Log(Time.time + " jump is committed");
             return;
         }else if (!jumping || (!doubleJumping && overwrite))
         {
